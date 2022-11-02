@@ -1,0 +1,102 @@
+body{
+    font-family: 'Bree Serif', serif;
+    background-color: #187498;
+    color:whitesmoke;
+    font-size: 22px;
+    line-height: 1.5em;
+    min-width: 600px;
+    
+}
+#paginaExplicacion,#paginaSeleccionPersonaje{
+    width: 100%;
+	max-width: 800px;
+	margin:0 auto;}
+#paginaExplicacion{
+    text-align: center;
+}
+#paginaSeleccionPersonaje{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.titulo {
+    color:#F9D923;
+    font-size: 60px;
+    height: 50 px;
+    font-family:'DynaPuff', cursive;
+}
+.subtitulo {
+    color:#F9D923;
+    font-size: 36px;
+}
+.tarjetadecharaplay{
+    width: 160px;
+    height: 88px;
+    background: #EB5353;
+    padding: 15px;
+    box-sizing: border-box;
+    margin: 8px;
+    border: 4px outset    rgb(177, 106, 101);
+    border-radius: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 20px;
+}
+input {
+    display: none;
+}
+input:checked + label {
+ background-color: #36AE7C;
+}
+button{
+    border-radius: 10px;
+    background-color:#EB5353 ;
+    color: #F9D923;
+    width: 80px;
+    height: 60px;
+}
+button:hover {
+    background-color: #36AE7C;
+}
+button:active{
+  background-color: #36AE7C;
+  box-shadow: 0 6px rgb(4, 36, 25);
+  transform: translateY(4px);
+}
+
+.botonSeleccion {
+    color:#F9D923 ;
+}
+.circle{
+    background: #0F2027;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+.circle:hover{
+    transform: translate(20px,-20px);
+}
+.shadow{
+    background:#F9D923
+}
+a:link{
+    color: coral;
+}
+a:visited{
+    color:chartreuse;
+}
+a:hover{
+    color: goldenrod;
+}
+h1:hover{
+   color: goldenrod;
+}
+@media (max-width: 641px){
+	body{
+		font-size: 30px;
+	}
+}    
