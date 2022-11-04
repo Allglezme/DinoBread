@@ -84,8 +84,27 @@ function charaSelecionado() {
         paginaSeleccionPersonaje.style.display = "none"
 
         sectionVerMapa.style.display = "flex"
-        //iniciarMapa() 
+        Iniciarcanvas()
     }
+}
+function Iniciarcanvas(){
+    function pintarCanva()
+    console.log("Se inicio el canvas")
+}    
+function pintarCanvas(){
+    /* Esto da la velocidada del jugador
+    mascotaJugadorObjeto.x = mascotaJugadorObjeto.x + mascotaJugadorObjeto.velocidadX
+    mascotaJugadorObjeto.y = mascotaJugadorObjeto.y + mascotaJugadorObjeto.velocidadY**/
+    lienzo.clearRect(0,0,mapa.width,mapa.height)
+    lienzo.drawImage(
+        mapaBackground,
+        0,
+        0,
+        mapa.width,
+        mapa.height
+
+    )
+    mascotaJugadorObjeto.pintarMiMokepon()
 }
 function iniciarSectionAnimations(){
     sectionreiniciar.style.display = "flex"
