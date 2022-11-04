@@ -19,6 +19,12 @@ body{
     flex-direction: column;
     align-items: center;
 }
+#buttonAnimations{
+    height: 102px;
+    position: absolute;
+    left: 21px; 
+    bottom: 210px;
+}
 .titulo {
     color:#F9D923;
     font-size: 60px;
@@ -54,8 +60,10 @@ button{
     border-radius: 10px;
     background-color:#EB5353 ;
     color: #F9D923;
-    width: 80px;
+    width: 96px;
     height: 60px;
+    border-radius: 28px;
+    font-size: 16px;
 }
 button:hover {
     background-color: #36AE7C;
@@ -68,20 +76,113 @@ button:active{
 
 .botonSeleccion {
     color:#F9D923 ;
+    width: 160px;
+    height: 60px;
 }
-.circle{
-    background: #0F2027;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+.cButtonAnimations{
+    width: 98px;
+    border-radius: 40px;
+    padding: 5px;
+    font-size: 14px;
+    box-sizing: content-box;
+    margin-left: 20px;
+}
+.shadow{
+    background: lightgray;
+    border-radius: 50%;
     width: 100px;
     height: 100px;
-    border-radius: 50%;
 }
 .circle:hover{
     transform: translate(20px,-20px);
 }
-.shadow{
-    background:#F9D923
+.circle{
+    background: #0F2027;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #2C5364, #203A43, #0F2027); 
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    transform-origin: top left;
+}
+.circle2{
+    background: #003973;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #E5E5BE, #003973);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #E5E5BE, #003973);
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+.circle2:hover{
+    transform: scale(0.7);
+}
+.circle3{
+    background: #3CA55C;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #B5AC49, #3CA55C);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #B5AC49, #3CA55C); 
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+.circle3:hover{
+    transform: skew(40deg)
+}
+.circle4{
+    background: #3CA55C;  
+    background: -webkit-linear-gradient(to right, #B5AC49, #3CA55C);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #B5AC49, #3CA55C); 
+    width: 90px;
+    height: 30px;
+    border-radius: 50%;
+    transform-origin: left bottom;
+}
+.circle4:hover{
+    transform: rotate(180deg);
+    transition: all 2s;
+}
+.containercircle5{
+    position: relative;
+    width: 80px;
+    height: 100px;
+    border: 5px solid orangered;
+    perspective:100px;
+}
+.circle5{
+    position: absolute;
+    background: #ff6e7f;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #bfe9ff, #ff6e7f);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #bfe9ff, #ff6e7f); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    width: 80px;
+    height: 100px;
+    opacity: 0.5;
+    border: 5px solid papayawhip;
+   
+    transform-style: preserve-3d;
+    transform: rotatex(45deg);
+}
+.card{
+    width: 150px;
+    height: 150px;
+    transform-style: preserve-3d;
+    position: relative;
+}
+.card:hover{
+    transform: rotateY(180deg);
+    transition: all 2s;
+}
+.face{
+    border-radius: 20px;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+}
+.face.front{
+    background: #EB5353;
+}
+.face.back{
+    background: #df56aa;
+    transform: rotateY(180deg);
 }
 a:link{
     color: coral;
