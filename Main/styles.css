@@ -5,7 +5,7 @@ body{
     font-size: 22px;
     line-height: 1.5em;
     min-width: 600px;
-    
+    margin: 0;
 }
 #paginaExplicacion,#paginaSeleccionPersonaje{
     width: 100%;
@@ -67,6 +67,7 @@ button{
 }
 button:hover {
     background-color: #36AE7C;
+    transform: scale(1.2);
 }
 button:active{
   background-color: #36AE7C;
@@ -85,8 +86,11 @@ button:active{
     padding: 5px;
     font-size: 14px;
     box-sizing: content-box;
-    margin-left: 20px;
+    margin-left: 108px;
 }
+
+
+/* A parti de aqui son animaciones*/
 .shadow{
     background: lightgray;
     border-radius: 50%;
@@ -98,7 +102,7 @@ button:active{
 }
 .circle{
     background: #0F2027;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);
     background: linear-gradient(to right, #2C5364, #203A43, #0F2027); 
     width: 100px;
     height: 100px;
@@ -107,7 +111,7 @@ button:active{
 }
 .circle2{
     background: #003973;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #E5E5BE, #003973);  /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, #E5E5BE, #003973);  
     background: linear-gradient(to right, #E5E5BE, #003973);
     width: 100px;
     height: 100px;
@@ -118,7 +122,7 @@ button:active{
 }
 .circle3{
     background: #3CA55C;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #B5AC49, #3CA55C);  /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, #B5AC49, #3CA55C);  
     background: linear-gradient(to right, #B5AC49, #3CA55C); 
     width: 100px;
     height: 100px;
@@ -129,7 +133,7 @@ button:active{
 }
 .circle4{
     background: #3CA55C;  
-    background: -webkit-linear-gradient(to right, #B5AC49, #3CA55C);  /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, #B5AC49, #3CA55C);  
     background: linear-gradient(to right, #B5AC49, #3CA55C); 
     width: 90px;
     height: 30px;
@@ -160,6 +164,7 @@ button:active{
     transform-style: preserve-3d;
     transform: rotatex(45deg);
 }
+/*Esto Hace una carta que se gira al señalarla*/
 .card{
     width: 150px;
     height: 150px;
@@ -196,8 +201,63 @@ a:hover{
 h1:hover{
    color: goldenrod;
 }
+
+/* Aqui Empieza el Media*/
 @media (max-width: 641px){
 	body{
 		font-size: 30px;
 	}
 }    
+/*Aqui empeza el 
+.parallaxContainer{
+    width: 100%;
+    height: 118vh;
+    perspective: 8px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    position: relative;
+}
+.image0{
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    transform: 0 50%;
+}
+.imageBackground{
+    height: auto;
+    width: 100%;
+    transform: translateZ(0px) scale(1);
+    transform-origin:0 50%;
+    scale: 3.5;
+}
+.imageMiddle{
+    height: 100%;
+    width: 100%;
+    transform: translateZ(5px) scale(0.2);
+    transform-origin:50%;
+}
+.imageForeground{
+    transform: translateZ(2px) scale(0.5);
+    transform-origin:top;
+}
+.cardParallex{
+    background: white;
+    border-radius: 20%;
+    width:140px ;
+    height:100px ;
+    position: absolute;
+    transform: rotate(-30deg);
+}
+.cardParallexone{
+    left: 30%;
+    }
+.cardParallextwo{
+    right: 20%;
+    top: 200px;
+    }
+.cardParallexthree{
+    left: 10%;
+    bottom: -700px;
+    }
+parrallax*/

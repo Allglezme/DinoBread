@@ -6,6 +6,7 @@ const empezarSeleccion        = document.getElementById('empezarSeleccion')
 const sectionAnimations       = document.getElementById('animations')
 const sectionButtonAnimations = document.getElementById("buttonAnimations")
 const sectionVerMapa          = document.getElementById("sectionVerMapa")
+const ContenerdorpaginaExp    =  document.getElementById("ContenerdorpaginaExplicacion") 
 
 let charaJugador
 let charaplays = []
@@ -48,7 +49,8 @@ function iniciarSeleccion() {
     sectionreiniciar.style.display = "flex"
 
     sectionButtonAnimations.style.display = "none"
-    paginaExplicacion.style.display = "none"
+    paginaExplicacion.style.display       = "none"
+    ContenerdorpaginaExp.style.display    = "none"
 
     charaplays.forEach((CharaPlayable) => {
         opcionDeCharaPlay = `
@@ -88,7 +90,7 @@ function charaSelecionado() {
     }
 }
 function Iniciarcanvas(){
-    function pintarCanva()
+     pintarCanva()
     console.log("Se inicio el canvas")
 }    
 function pintarCanvas(){

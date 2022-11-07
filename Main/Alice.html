@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alice</title>
+    <style>
+        /*Efecto parlllax*/
+        body {margin: 0;
+        }
+        .parallaxContainer{
+            width: 100%;
+            height: 100vh;
+            perspective: 8px;
+            overflow-x: hidden;
+            overflow-y: scroll;
+            position: relative;
+        }
+        .image0{
+            position: absolute;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            transform: 0 50%;
+        }
+        .imageBackground{
+            height: auto;
+            width: 100%;
+            transform: translateZ(0px) scale(1);
+            transform-origin:0 50%;
+        }
+        .imageMiddle{
+            display: flex;
+            height: 100%;
+            width: 100%;
+            transform: translateZ(5px) scale(0.3);
+            transform-origin:50%;
+        }
+        .imageForeground{
+            transform: translateZ(2px) scale(0.75);
+            transform-origin:top;
+        }
+        .card{
+            background: rgb(73, 255, 179);
+            border-radius: 20%;
+            width:140px ;
+            height:100px ;
+            position: absolute;
+            transform: rotate(-30deg);
+            font-size: 16px;
+            text-align: center;
+            justify-content: center;
+            box-sizing: content-box;
+            padding: 5px;
+        }
+        .one{
+            left: 30%;
+            }
+        .two{
+            right: 20%;
+            top: 200px;
+            }
+        .three{
+            left: 10%;
+            bottom: -700px;
+            }
+        .four{
+            left: 30%;
+            bottom: -760px;
+            }
+    </style>
+</head>
+<body>
+
+    <div class ="parallaxContainer">
+
+        <div class ="image0 imageBackground">
+            <img src="./Background.png"alt="Background">
+        </div>
+    
+        <div class="image0 imageMiddle">
+            <div class="card one"><p>Hola?</p></div>
+            <div class="card two"><p>Estas ahi??</p></div>
+            <div class="card three"><p>Pobres dinosaurios...</p></div>
+            <div class="card four"><p>Pobres quienes, por que?</p></div>
+        </div>
+    
+        <div class="image0 imageForeground">
+            <img src="./Alice.png"alt="Alice">
+        </div>
+
+    </div>
+</body>
+</html>
