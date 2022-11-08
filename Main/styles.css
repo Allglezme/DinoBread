@@ -7,23 +7,28 @@ body{
     min-width: 600px;
     margin: 0;
 }
-#paginaExplicacion,#paginaSeleccionPersonaje{
+#paginaExplicacion,#paginaSeleccionPersonaje,#sectionVerMapa{
     width: 100%;
 	max-width: 800px;
 	margin:0 auto;}
 #paginaExplicacion{
     text-align: center;
 }
-#paginaSeleccionPersonaje{
+#paginaSeleccionPersonaje,#sectionVerMapa{
     display: flex;
     flex-direction: column;
     align-items: center;
 }
+#mapa{
+    border-radius: 5%;
+}
 #buttonAnimations{
     height: 102px;
-    position: absolute;
-    left: 21px; 
-    bottom: 210px;
+    position: relative;    
+}
+#reiniciar{
+    display: flex;
+    justify-content: center
 }
 .titulo {
     color:#F9D923;
@@ -79,6 +84,7 @@ button:active{
     color:#F9D923 ;
     width: 160px;
     height: 60px;
+    margin: 6px;
 }
 .cButtonAnimations{
     width: 98px;
@@ -86,7 +92,6 @@ button:active{
     padding: 5px;
     font-size: 14px;
     box-sizing: content-box;
-    margin-left: 108px;
 }
 
 
