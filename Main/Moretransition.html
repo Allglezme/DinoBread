@@ -6,37 +6,135 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        .container{
-            background: gray;
-            width: 400px;
-            height: 200px;
+        body{
+            margin: 0;
+            background-color: black;
+            font-size: 20px;
+            color:#E8F9FD;
+        }
+        .contenedorMaestro{
             display: flex;
-            justify-content: space-between;
-            margin:30px;
+            flex-direction: column;
+            align-items: center;
+        }
+        ul{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+            color: #E8F9FD;
+        }
+        .nav{
+            display: flex;
+        }
+        .nav li ul{
+            display: block;
+            visibility: hidden;
+            position: absolute;
+            transition: visibility 400ms;
+            transition-delay: 400ms;
+        }
+        .nav li:hover > ul{
+            visibility: visible  ;
+            transition: visibility 400ms;
+            transition-delay: 400ms;
+        }
+        .nav li ul li{
+            position: relative;
+            right: -80px;
+        }
+        .container{
+            background: transparent;
+            width: 400px;
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            margin: 30px;
+            align-content: center;
+            flex-direction: column;
+            align-items: flex-start;
+            position: relative;
         }
         .container:hover .box{
             transform: scale(1.2);
+            transform: translateX(400px);
+            
         }
         .box{
             width: 100px;
             height: 100px;
+            border-radius: 50%;
         }
         .box1{
-            background: yellow;
+            background: #FF1E00;
+            transition: transform 500ms linear;
+            transition-delay: 0.5s;
         }
         .box2{
-            background: yellowgreen;
+            background: #E8F9FD;
+            transition: transform 500ms ease-in;
+            transition-delay: 0.5s;
         }
         .box3{
-            background: green;
+            background: #59CE8F;
+            transition: transform 500ms cubic-bezier(.31,1.04,.65,.26);
+            transition-delay: 0.5s;
+        }
+        .bouncy{
+            background: #59CE8F;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            transition: transform 1.5s linear;
+        }
+        .bouncy:hover{
+            transform: translateY(-100px);
+            transition: transform 0.5s linear;
+        }
+        .bouncy2{
+            background: #59CE8F;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            transition: transform 1.5s linear;
+        }
+        .containerBouncy2:hover .bouncy2{
+            transform: translateX(100px);
+            transition: transform 0.5s linear;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="box box1"></div>
-        <div class="box box2"></div>
-        <div class="box box3"></div>
+    <div class="contenedorMaestro">
+        <h1>Hola mundo</h1>
+
+        <div class="container">
+            <div class="box box1"></div>
+            <div class="box box2"></div>
+            <div class="box box3"></div>
+        </div>
+        <div class="bouncy"></div>
+        <div class="containerBouncy2">
+            <div class="bouncy2"></div>
+        </div>
+    
+        <ul class="nav">
+            <li><a href="/">Mujer</a>
+            <ul>
+                <li><a href="/">Camisetas</a></li>
+                <li><a href="/">Pantalones</a></li>
+                <li><a href="/">Faldas</a>
+                    <ul>
+                        <li><a href="/">Cortas</a></li>
+                        <li><a href="/">Largas</a></li>
+                        <li><a href="/">Mini</a></li>
+                    </ul>
+                </li>
+            </ul>
+            </li>
+            <li><a href="/">Hombre</a></li>
+            <li><a href="/">Niño</a></li>
+        </ul>
     </div>
 </body>
 </html>
