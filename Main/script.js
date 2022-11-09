@@ -7,11 +7,13 @@ const sectionAnimations       = document.getElementById('animations')
 const sectionButtonAnimations = document.getElementById("buttonAnimations")
 const sectionVerMapa          = document.getElementById("sectionVerMapa")
 const mapa                    = document.getElementById("mapa")
-const ContenerdorpaginaExp    =  document.getElementById("ContenerdorpaginaExplicacion") 
+const spanScore               = document.getElementById("spanScore")
+const ContenerdorpaginaExp    = document.getElementById("ContenerdorpaginaExplicacion") 
 
 let charaJugador
 let charaJugadorObjeto
 let charaplays = []
+let Enemigos   = []
 
 let lienzo = mapa.getContext("2d")
 let intervaloMov
@@ -54,19 +56,43 @@ class CharaPlayable {
         )
     }
 }
-// //class CharaPlayable {
-//     constructor(name, picture, hp){
-//         this.name = name
-//         this.picture = picture esto faltsa por agragar si no da error
-//         t/
-//     }
-// }*//
+class Enemigogenerico{
+    constructor(name, hp, picture){
+        this.name    = name
+        this.hp      = hp 
+        this.picture = picture
+        this.ancho = 80 
+        this.alto= 80
+        this.x = 150
+        this.y = 300
+        this.mapaFoto = new Image()
+        this.mapaFoto.src = picture
+        this.velocidadX = 0
+        this.velocidadY = 0
+    }
+    pintarEnemigo(){
+        lienzo.drawImage(
+            this.mapaFoto,
+            this.x,
+            this.y,
+            this.ancho,
+            this.alto
+        )
+    }
+}
+
 let Tyra = new CharaPlayable("Tyra",5,"./assets/Eggspace.png","./assets/dino.png")
 let Steg = new CharaPlayable("Steg",5,"./assets/Eggspace.png","./assets/dino.png")
 let Axel = new CharaPlayable("Axel",5,"./assets/Eggspace.png","./assets/dino.png")
 
-
 charaplays.push(Tyra,Steg,Axel)
+
+/*Enemigos dentro del arreglo*/
+
+let Moho = new Enemigogenerico("Moho",2,"./assets/enemygen.png")
+
+Enemigos.push(Moho)
+
 
 function iniciarJuego(){
     empezarSeleccion.addEventListener("click",iniciarSeleccion)
@@ -90,7 +116,7 @@ function iniciarSeleccion() {
 
     charaplays.forEach((CharaPlayable) => {
         opcionDeCharaPlay = `
-        <input type="radio" name="character" id=${CharaPlayable.name} />
+        <input type="radio" name="character" class= "inputChara"id=${CharaPlayable.name} />
         <label class = "tarjetadecharaplay" for=${CharaPlayable.name}>
             <p>${CharaPlayable.name}</p><img src=${CharaPlayable.picture} alt=${CharaPlayable.name}>
         </label>
@@ -138,7 +164,14 @@ function pintarCanvas(){
         mapa.width,
         mapa.height
     )
+    Moho.pintarEnemigo()
     charaJugadorObjeto.pintarMyChara()
+    
+
+    if (charaJugadorObjeto.velocidadX !== 0 || charaJugadorObjeto.velocidadY !== 0){
+        checkCollisions(Moho)
+    }
+    
 }
 function iniciarMapa(){
         
@@ -192,12 +225,8 @@ function sePresionoTecla (event){
             break;
     }
 }
-/*colisiones detector*/
-function checkCollisions(){
-    detenerMovimiento()
-    clearInterval(intervaloMov)
-    console.log("colisionaste")
-}
+
+
 /*Otras animaciones*/
 function iniciarSectionAnimations(){
     sectionreiniciar.style.display = "flex"
@@ -209,34 +238,37 @@ function iniciarSectionAnimations(){
 
     botonReiniciar.addEventListener("click",reiniciarJuego)
 }
+/*colisiones detector*/
 function checkCollisions(enemigo){
     const arribaEnemigo   = enemigo.y
     const abajoEnemigo     = enemigo.y + enemigo.alto
     const derechaEnemigo   = enemigo.x + enemigo.ancho
     const izquierdaEnemigo = enemigo.x 
    
-    const superiorObjetoMascota  = mascotaJugadorObjeto.y
-    const inferiorObjetoMascota  = mascotaJugadorObjeto.y + mascotaJugadorObjeto.alto
-    const derechaObjetoMascota   = mascotaJugadorObjeto.x +  mascotaJugadorObjeto.ancho
-    const izquierdaObjetoMascota  = mascotaJugadorObjeto.x 
+    const superiorObjetoChara  = charaJugadorObjeto.y
+    const inferiorObjetoChara  = charaJugadorObjeto.y + charaJugadorObjeto.alto
+    const derechaObjetoChara   = charaJugadorObjeto.x +  charaJugadorObjeto.ancho
+    const izquierdaObjetoChara  = charaJugadorObjeto.x 
 
     if(
-        inferiorObjetoMascota < arribaEnemigo   ||
-        superiorObjetoMascota > abajoEnemigo     ||
-        derechaObjetoMascota  < izquierdaEnemigo ||
-        izquierdaObjetoMascota  > derechaEnemigo
+        inferiorObjetoChara < arribaEnemigo   ||
+        superiorObjetoChara > abajoEnemigo     ||
+        derechaObjetoChara  < izquierdaEnemigo ||
+        izquierdaObjetoChara  > derechaEnemigo
     ){
         return 
     }
     detenerMovimiento()
     clearInterval(intervaloMov)
     console.log("colisionaste")
-    sectionSeleccionarAtaque.style.display = "flex"
+    intervaloMov = setInterval(pintarCanvas,50)
+   /* sectionSeleccionarAtaque.style.display = "flex"
     sectionVerMapa.style.display = "none"
-    seleccionarMascotaEnemigo(enemigo)
+    seleccionarMascotaEnemigo(enemigo)*/
    // alert("Colisionaste con "+ enemigo.name)
 }
 function reiniciarJuego (){
     location.reload()
 }
 window.addEventListener ('load', iniciarJuego)
+
