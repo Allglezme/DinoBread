@@ -7,7 +7,9 @@
         <title>DinoBread!</title>
         <link rel="stylesheet" href="./styles.css">
         <style>
-            
+            body{
+                counter-reset:game;
+            }
         </style>
     </head>
     <body>
@@ -46,8 +48,12 @@
         <section id="sectionVerMapa">
             
             <h2 class="subtitulo">Recorre el mapa</h2>
-
+           
+            <header class="countScore">Score:<span id="spanScore"></span> </header>
             <canvas id="mapa"></canvas>
+            <ul class="scoreContainer">
+                
+            </ul>
         </section>
 
         <section id = animations>
@@ -74,3 +80,4 @@
     </body>
     <script src="./script.js"></script>
     </html>
+
