@@ -8,6 +8,11 @@
     <style>
         body{
             counter-reset:game; /* crea o reinicia un contador */
+            margin: 0;
+            height: 100vh;
+            width: 100%;
+            display: grid;
+            place-items: center;
         }
 
         input:checked {
@@ -17,6 +22,125 @@
         .total-count::after{
             content: counter(game);/* inserta el contenido generado (usar con pseudoelemento) */
         } /* counter: funcion que agrega el valor de un contador a un elemento */
+        .phone{
+            position: relative;
+            border: 8px solid black;
+            border-radius: 40px;
+            height: 600px;
+            width: 300px;
+            background: rgb(222, 222, 247);
+            box-shadow: 0 9px 38px gray, 0 12px 15px rgb(53, 52, 52) ;
+        }
+        .layer1{
+            position: absolute;
+            z-index: 1;
+            height: 510px;
+            width: 80px;
+            background: white;
+            bottom: 0;
+            right: 60px;
+        }
+        .layer2{
+            position: absolute;
+            z-index: 2;
+            height: 510px;
+            width: 80px;
+            background: white;
+            bottom: 0;
+            left: 60px;
+        }
+        .layer3{
+            position: absolute;
+            z-index: 3;
+            height: 450px;
+            width: 220px;
+            margin: 0 auto;
+            background: wheat;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            border: 2px solid rgb(148, 140, 126);
+            border-radius: 15px;
+        }
+        .layer4{
+            position: absolute;
+            z-index: 4;
+            height: 400px;
+            width: 80px;
+            background: white;
+            bottom: 0;
+            left: 40px;
+        }
+        .layer5{
+            position: absolute;
+            z-index: 5;
+            height: 340px;
+            width: 220px;
+            margin: 0 auto;
+            background: wheat;
+            bottom: 0;
+            left: 8px;
+            border: 2px solid rgb(148, 140, 126);
+            border-radius: 15px;
+        }
+        .layer6{
+            position: absolute;
+            z-index: 6;
+            height: 280px;
+            width: 80px;
+            background: white;
+            bottom: 0;
+            right:  20px;
+        }
+        .layer7{
+            position: absolute;
+            z-index: 7;
+            height: 220px;
+            width: 220px;
+            margin: 0 auto;
+            background: wheat;
+            bottom: 0;
+            right: 4px;
+            border: 2px solid rgb(148, 140, 126);
+            border-radius: 15px;
+        }
+        .layer8{
+            position: absolute;
+            z-index: 8;
+            height: 60px;
+            width: 84px;
+            margin: 0 auto;
+            background: rgb(163, 245, 200);
+            bottom: 0;
+            left: 0;
+            right: 0;
+            border: 2px solid rgb(148, 140, 126);
+            border-radius: 15px;
+        }
+        .layer9{
+            position: absolute;
+            z-index: 9;
+            height: 76px;
+            width: 100px;
+            margin: 0 auto;
+            background: white;
+            bottom: 0;
+            left: 8px;
+            border: 2px solid rgb(148, 140, 126);
+            border-radius: 15px;
+        }
+        .layer10{
+            position: absolute;
+            z-index: 10;
+            height: 76px;
+            width: 100px;
+            margin: 0 auto;
+            background: white;
+            bottom: 0;
+            right: 8px;
+            border: 2px solid rgb(148, 140, 126);
+            border-radius: 15px;
+        }
     </style>
 </head>
 <body>
@@ -74,6 +198,18 @@
     </ul>
     
     <h3 class="total-count">Score: </h3>
-    
+
+    <div class="phone">
+        <div class="layer1"></div><!--Bunny 1-->
+        <div class="layer2"></div>/<!--Bunny 2-->
+        <div class="layer3"></div>
+        <div class="layer4"></div>
+        <div class="layer5"></div>
+        <div class="layer6"></div>
+        <div class="layer7"></div>
+        <div class="layer8"></div>
+        <div class="layer9"></div>
+        <div class="layer10"></div>
+    </div>
 </body>
 </html>
