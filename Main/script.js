@@ -10,17 +10,24 @@ const mapa                    = document.getElementById("mapa")
 const spanScore               = document.getElementById("spanScore")
 const ContenerdorpaginaExp    = document.getElementById("ContenerdorpaginaExplicacion") 
 
+let vidasdelJugador = 5
+let scoredelJugador = 0
+
 let charaJugador
 let charaJugadorObjeto
-let charaplays = []
-let Enemigos   = []
+
+
+
+let charaplays   = []
+let Enemigos     = []
+let collectables = []
 
 let lienzo = mapa.getContext("2d")
 let intervaloMov
 let mapaBackground = new Image()
 
-mapaBackground.src = "./assets/backgroundgen.png"
-
+mapaBackground.src = "./assets/backgroundPapire.jpg"
+/**<a href="https://www.freepik.com/free-photo/grunge-concrete-material-background-texture-wall-concept_3224625.htm#query=vintage%20background&position=3&from_view=keyword">Image by rawpixel.com</a> on Freepik*/
 let alturaDeseada
 let anchoDelMapa = window.innerWidth -40
 const anchoMaxMapa = 640
@@ -80,6 +87,28 @@ class Enemigogenerico{
         )
     }
 }
+class Pickme{
+    constructor(name, picture,x,y){
+        this.name    = name
+        this.picture = picture
+        this.ancho = 80 
+        this.alto= 80
+        this.x = 300
+        this.y = 100
+        this.mapaFoto = new Image()
+        this.mapaFoto.src = picture
+    }
+    pintarcollectable(){
+        lienzo.drawImage(
+            this.mapaFoto,
+            this.x,
+            this.y,
+            this.ancho,
+            this.alto
+        )
+    }
+}
+
 
 let Tyra = new CharaPlayable("Tyra",5,"./assets/Eggspace.png","./assets/dino.png")
 let Steg = new CharaPlayable("Steg",5,"./assets/Eggspace.png","./assets/dino.png")
@@ -92,6 +121,11 @@ charaplays.push(Tyra,Steg,Axel)
 let Moho = new Enemigogenerico("Moho",2,"./assets/enemygen.png")
 
 Enemigos.push(Moho)
+
+/*Coleccionables*/
+let BreadBox = new Pickme("BreadBox","./assets/bread.png")
+
+collectables.push(BreadBox)
 
 
 function iniciarJuego(){
@@ -164,15 +198,24 @@ function pintarCanvas(){
         mapa.width,
         mapa.height
     )
-    Moho.pintarEnemigo()
+    BreadBox.pintarcollectable()
+    /*Moho.pintarEnemigo()*/
     charaJugadorObjeto.pintarMyChara()
-    
+
+    spanScore.innerHTML = scoredelJugador
 
     if (charaJugadorObjeto.velocidadX !== 0 || charaJugadorObjeto.velocidadY !== 0){
         checkCollisions(Moho)
+        checkCollisions(BreadBox)
     }
     
 }
+/*function pintarcollectableAleatorios{
+
+    collectables.forEach((Pickme) =>{
+        Pickme.pintarcollectable
+    })       
+}*/
 function iniciarMapa(){
         
     charaJugadorObjeto = obtenerObjetoChara(charaJugador)
@@ -262,13 +305,24 @@ function checkCollisions(enemigo){
     clearInterval(intervaloMov)
     console.log("colisionaste")
     intervaloMov = setInterval(pintarCanvas,50)
+    pickCollectables(enemigo)
    /* sectionSeleccionarAtaque.style.display = "flex"
     sectionVerMapa.style.display = "none"
     seleccionarMascotaEnemigo(enemigo)*/
    // alert("Colisionaste con "+ enemigo.name)
 }
+function pickCollectables(colecItem){
+    if (collectables.includes(colecItem)){
+        scoredelJugador = scoredelJugador +1
+    }
+    else{
+        vidasdelJugador = vidasdelJugador-1
+        charaJugadorObjeto.x = charaJugadorObjeto.x-36
+        charaJugadorObjeto.y = charaJugadorObjeto.y-8
+    }
+}
+
 function reiniciarJuego (){
     location.reload()
 }
 window.addEventListener ('load', iniciarJuego)
-
