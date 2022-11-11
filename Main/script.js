@@ -93,8 +93,8 @@ class Pickme{
         this.picture = picture
         this.ancho = 80 
         this.alto= 80
-        this.x = 300
-        this.y = 100
+        this.x = aleatorio(0,mapa.width -this.ancho)
+        this.y = aleatorio(0,mapa.height -this.alto)
         this.mapaFoto = new Image()
         this.mapaFoto.src = picture
     }
@@ -107,6 +107,9 @@ class Pickme{
             this.alto
         )
     }
+    /*pintarcollectableRandom(){
+        intervaloItemgenerator = setInterval(pintarcollectable,100)
+    }*/ 
 }
 
 
@@ -198,8 +201,8 @@ function pintarCanvas(){
         mapa.width,
         mapa.height
     )
-    BreadBox.pintarcollectable()
-    /*Moho.pintarEnemigo()*/
+    Moho.pintarEnemigo()
+    intervalopan = setInterval(creadordepanes,400)
     charaJugadorObjeto.pintarMyChara()
 
     spanScore.innerHTML = scoredelJugador
@@ -209,6 +212,9 @@ function pintarCanvas(){
         checkCollisions(BreadBox)
     }
     
+}   
+function creadordepanes(){
+    BreadBox.pintarcollectable()
 }
 /*function pintarcollectableAleatorios{
 
@@ -220,6 +226,7 @@ function iniciarMapa(){
         
     charaJugadorObjeto = obtenerObjetoChara(charaJugador)
     intervaloMov = setInterval(pintarCanvas,50)
+
 
     window.addEventListener("keydown", sePresionoTecla)
     window.addEventListener("keyup", detenerMovimiento)
@@ -324,5 +331,8 @@ function pickCollectables(colecItem){
 
 function reiniciarJuego (){
     location.reload()
+}
+function aleatorio(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min)
 }
 window.addEventListener ('load', iniciarJuego)
