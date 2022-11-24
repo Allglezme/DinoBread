@@ -22,7 +22,7 @@ let charaplays   = []
 let Enemigos     = []
 let collectables = []
 
-let lienzo = mapa.getContext("2d")
+let lienzo = mapa.getContext("2d")  
 let intervaloMov
 let mapaBackground = new Image()
 
@@ -84,6 +84,13 @@ class Enemigogenerico{
             this.y,
             this.ancho,
             this.alto
+        )
+    }
+    update(){
+        lienzo.drawImage(
+            this.mapaFoto,
+            this.x =this.x+1,
+            this.y =this.y+1
         )
     }
 }
@@ -188,12 +195,13 @@ function charaSelecionado() {
         iniciarMapa()
     }
 }
-
-      
+function clearMyCanva(){
+    lienzo.clearRect(0,0,mapa.width,mapa.height)
+}
 function pintarCanvas(){
     charaJugadorObjeto.x = charaJugadorObjeto.x + charaJugadorObjeto.velocidadX
     charaJugadorObjeto.y = charaJugadorObjeto.y + charaJugadorObjeto.velocidadY
-    lienzo.clearRect(0,0,mapa.width,mapa.height)
+    clearMyCanva()
     lienzo.drawImage(
         mapaBackground,
         0,
@@ -201,8 +209,10 @@ function pintarCanvas(){
         mapa.width,
         mapa.height
     )
+    //Pintar Objetos en caNVAS  
     Moho.pintarEnemigo()
-    intervalopan = setInterval(creadordepanes,400)
+    Moho.update()
+    BreadBox.pintarcollectable()
     charaJugadorObjeto.pintarMyChara()
 
     spanScore.innerHTML = scoredelJugador
@@ -213,11 +223,11 @@ function pintarCanvas(){
     }
     
 }   
+
+/*function pintarcollectableAleatorios{
 function creadordepanes(){
     BreadBox.pintarcollectable()
 }
-/*function pintarcollectableAleatorios{
-
     collectables.forEach((Pickme) =>{
         Pickme.pintarcollectable
     })       
@@ -321,6 +331,7 @@ function checkCollisions(enemigo){
 function pickCollectables(colecItem){
     if (collectables.includes(colecItem)){
         scoredelJugador = scoredelJugador +1
+       // DestruirObjeto
     }
     else{
         vidasdelJugador = vidasdelJugador-1
