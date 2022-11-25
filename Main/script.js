@@ -70,8 +70,8 @@ class Enemigogenerico{
         this.picture = picture
         this.ancho = 80 
         this.alto= 80
-        this.x = 150
-        this.y = 300
+        this.x = aleatorio(0,mapa.width -this.ancho)
+        this.y = aleatorio(0,mapa.height -this.alto)
         this.mapaFoto = new Image()
         this.mapaFoto.src = picture
         this.velocidadX = 0
@@ -87,11 +87,29 @@ class Enemigogenerico{
         )
     }
     update(){
-        lienzo.drawImage(
+        if(this.x < mapa.width && this.y < mapa.height){
+            lienzo.drawImage(
+                    this.mapaFoto,
+                    this.x =this.x+2,
+                    this.y =this.y+2
+            )
+        }else if(this.x >= mapa.width && this.y >= mapa.height){
+                    this.mapaFoto,
+                    this.x =this.x-2,
+                    this.y =this.y-1
+        }
+        else if(this.x < mapa.width && this.y >= mapa.height){
             this.mapaFoto,
             this.x =this.x+1,
+            this.y =this.y-1
+        
+        }
+        else if(this.x >= mapa.width && this.y < mapa.height){
+            this.mapaFoto,
+            this.x =this.x-2,
             this.y =this.y+1
-        )
+        }
+        else{console.log("nomeMuevo")}
     }
 }
 class Pickme{
@@ -197,11 +215,6 @@ function charaSelecionado() {
 }
 function clearMyCanva(){
     lienzo.clearRect(0,0,mapa.width,mapa.height)
-}
-function pintarCanvas(){
-    charaJugadorObjeto.x = charaJugadorObjeto.x + charaJugadorObjeto.velocidadX
-    charaJugadorObjeto.y = charaJugadorObjeto.y + charaJugadorObjeto.velocidadY
-    clearMyCanva()
     lienzo.drawImage(
         mapaBackground,
         0,
@@ -209,8 +222,12 @@ function pintarCanvas(){
         mapa.width,
         mapa.height
     )
-    //Pintar Objetos en caNVAS  
-    Moho.pintarEnemigo()
+}
+function pintarCanvas(){
+    charaJugadorObjeto.x = charaJugadorObjeto.x + charaJugadorObjeto.velocidadX
+    charaJugadorObjeto.y = charaJugadorObjeto.y + charaJugadorObjeto.velocidadY
+    clearMyCanva()
+    //Pintar Objetos en caNVAS Moho.pintarEnemigo() 
     Moho.update()
     BreadBox.pintarcollectable()
     charaJugadorObjeto.pintarMyChara()
